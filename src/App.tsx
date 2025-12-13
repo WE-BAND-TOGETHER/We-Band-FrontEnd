@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
 import Layout from '@layout/Layout';
-import Home from '@pages/Home';
 import * as S from './App.styled';
 import OnBoarding from '@pages/Onboarding';
 import ProtectedRoute from '@components/ProtectedRoute';
 import Auth from '@pages/Auth';
+import MyCalenderPage from '@pages/MyCalendar';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
-              <Route index element={<Home />} />
+              <Route index element={<MyCalenderPage />} />
             </Route>
           </Route>
         </Routes>

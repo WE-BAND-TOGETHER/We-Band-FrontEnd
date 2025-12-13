@@ -4,7 +4,7 @@ import * as I from './BaseIcon';
 
 const NavBarState = {
   CALENDAR: 'CALENDAR',
-  CLUB: 'CLUB',
+  MEET: 'MEET',
   MY: 'MY',
 };
 
@@ -20,8 +20,8 @@ const NavBar = () => {
           <I.CalendarOffIcon />
         )}
       </button>
-      <button onClick={() => setNavBarState(NavBarState.CLUB)}>
-        {navBarState === NavBarState.CLUB ? (
+      <button onClick={() => setNavBarState(NavBarState.MEET)}>
+        {navBarState === NavBarState.MEET ? (
           <I.MeetOnIcon />
         ) : (
           <I.MeetOffIcon />
