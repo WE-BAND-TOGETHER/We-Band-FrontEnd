@@ -1,13 +1,13 @@
 import { DAYNAMES } from '@constants/calendar.constants';
 
-//"2025-2-31"에서 연, 월, 일을 숫자로 파싱
-export const parseDateString = (
-  code: string,
-): { year: number; month: number; date: number } => {
-  const year = 2000 + Number(code.slice(0, 2));
-  const month = Number(code.slice(2, 4));
-  const date = Number(code.slice(4, 6));
-  return { year, month, date };
+//"2025-02-31"에서 연, 월, 일을 숫자로 파싱
+export const parseDateString = (dateString: string) => {
+  const d = new Date(dateString);
+  return {
+    year: d.getFullYear(),
+    month: d.getMonth() + 1,
+    date: d.getDate(),
+  };
 };
 
 export const getWeekDates = (year: number, month: number, date: number) => {
