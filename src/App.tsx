@@ -1,10 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router';
-import Layout from '@layout/Layout';
 import * as S from './App.styled';
-import OnBoarding from '@pages/Onboarding';
+
+import Layout from '@layout/Layout';
 import ProtectedRoute from '@components/ProtectedRoute';
+
+import OnBoarding from '@pages/Onboarding';
 import Auth from '@pages/Auth';
 import MyCalenderPage from '@pages/MyCalendar';
+import Meet from '@pages/Meet';
+import MyPage from '@pages/MyPage';
 
 function App() {
   return (
@@ -17,6 +21,8 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
               <Route index element={<MyCalenderPage />} />
+              <Route path="/meet" element={<Meet />} />
+              <Route path="/mypage" element={<MyPage />} />
             </Route>
           </Route>
         </Routes>
