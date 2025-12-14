@@ -1,21 +1,24 @@
 import { DAYNAMES } from '@constants/calendar.constants';
 import type { MonthDay } from 'src/types/caledar.type';
 
-//"2025-02-31"에서 연, 월, 일을 숫자로 파싱
-export const parseDateString = (dateString: string) => {
-  const d = new Date(dateString);
-  return {
-    year: d.getFullYear(),
-    month: d.getMonth() + 1,
-    date: d.getDate(),
-  };
-};
+// 주간 날짜 배열 생성
+export const getWeekDates = (baseDate: Date) => {
+  const week: {
+    year: number;
+    month: number;
+    date: number;
+    day: string;
+  }[] = [];
 
-export const getWeekDates = (year: number, month: number, date: number) => {
-  const week: { year: number; month: number; date: number; day: string }[] = [];
+  const start = new Date(baseDate);
 
   for (let i = 0; i < 7; i++) {
-    const current = new Date(year, month - 1, date + i);
+    const current = new Date(
+      start.getFullYear(),
+      start.getMonth(),
+      start.getDate() + i,
+    );
+
     week.push({
       year: current.getFullYear(),
       month: current.getMonth() + 1,
@@ -105,4 +108,12 @@ export const isToday = (year: number, month: number, date: number) => {
     today.getMonth() + 1 === month &&
     today.getDate() === date
   );
+};
+
+// 선택한 날짜가 속한 주의 시작일(일요일) 반환
+export const getStartOfWeek = (date: Date) => {
+  const d = new Date(date);
+  const day = d.getDay(); // 0(일)~6(토)
+  d.setDate(d.getDate() - day); // 일요일 시작
+  return d;
 };

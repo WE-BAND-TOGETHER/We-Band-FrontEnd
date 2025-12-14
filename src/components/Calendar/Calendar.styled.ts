@@ -132,5 +132,6 @@ export const Cell = styled.div<{ $isToday: boolean }>`
 `;
 
 export const EmptyCell = styled.div`
-  aspect-ratio: 1 / 1;
+  width: 36px;
+  height: 36px;
 `;

@@ -8,7 +8,7 @@ type CalendarMode = 'MEET' | 'MY' | 'EDIT';
 
 interface CalendarProps {
   mode: CalendarMode;
-  startDate: string;
+  baseDate: Date;
   weeklySchedules: {
     date: string;
     blocks: number[];
@@ -17,7 +17,7 @@ interface CalendarProps {
 }
 
 const Calendar = ({
-  startDate,
+  baseDate,
   mode,
   weeklySchedules,
   totalUser,
@@ -27,8 +27,8 @@ const Calendar = ({
   return (
     <S.CalendarContainer>
       <S.CalendarHeaderWrapper>
-        <S.Cell />
-        <CalendarDateList startDate={startDate} />
+        <S.EmptyCell />
+        <CalendarDateList noDays={false} baseDate={baseDate} />
       </S.CalendarHeaderWrapper>
 
       <S.CalendarScheduleContainer>
