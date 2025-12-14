@@ -25,8 +25,11 @@ const Calendar = ({
   const editable = mode === 'EDIT';
 
   return (
-    <S.LiteCalendarContainer>
-      <CalendarDateList startDate={startDate} />
+    <S.CalendarContainer>
+      <S.CalendarHeaderWrapper>
+        <S.Cell />
+        <CalendarDateList startDate={startDate} />
+      </S.CalendarHeaderWrapper>
 
       <S.CalendarScheduleContainer>
         <CalendarTimeList />
@@ -37,7 +40,7 @@ const Calendar = ({
           edit={editable}
         />
       </S.CalendarScheduleContainer>
-    </S.LiteCalendarContainer>
+    </S.CalendarContainer>
   );
 };
 

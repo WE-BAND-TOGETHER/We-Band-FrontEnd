@@ -6,7 +6,9 @@ export const LayoutContainer = styled.div`
   padding-bottom: 104px;
 `;
 
-export const Page = styled.div``;
+export const Page = styled.div`
+  min-height: calc(100vh - 104px);
+`;
 
 // NavBar styles
 export const NavBarContainer = styled.div`

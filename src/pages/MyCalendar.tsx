@@ -8,6 +8,7 @@ import * as S from './MyCalendar.styled';
 import Calendar from '@components/Calendar/Calendar';
 import { MONTHNAMES, MONTHWEEKTOGGLE } from '@constants/calendar.constants';
 import myScheduleMock from '@mock/mySchedule.json';
+import MonthCalendar from '@components/Calendar/MonthCalendar';
 
 const MyCalendarPage = () => {
   const [weekMonthToggle, setWeekMonthToggle] = useState(0);
@@ -41,12 +42,16 @@ const MyCalendarPage = () => {
         </S.HeaderButtonWrapper>
       </S.HeaderContainer>
 
-      <Calendar
-        startDate={myScheduleMock.startDate}
-        mode="MY"
-        weeklySchedules={myScheduleMock.days}
-        totalUser={1}
-      />
+      {weekMonthToggle ? (
+        <Calendar
+          startDate={myScheduleMock.startDate}
+          mode="MY"
+          weeklySchedules={myScheduleMock.days}
+          totalUser={1}
+        />
+      ) : (
+        <MonthCalendar startDate={myScheduleMock.startDate} />
+      )}
     </>
   );
 };

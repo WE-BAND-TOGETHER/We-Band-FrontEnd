@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as S from './Calendar.styled';
 import { BLOCKNUM, WEEK } from '@constants/calendar.constants';
 
@@ -13,11 +13,11 @@ interface CalendarScheduleProps {
   edit: boolean;
 }
 
-const CalendarScheduleBlocks: React.FC<CalendarScheduleProps> = ({
+const CalendarScheduleBlocks = ({
   totalUser,
   weeklySchedules,
   edit,
-}) => {
+}: CalendarScheduleProps) => {
   const [localSchedules, setLocalSchedules] =
     useState<WeeklySchedule[]>(weeklySchedules);
 

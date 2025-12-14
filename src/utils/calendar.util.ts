@@ -1,4 +1,5 @@
 import { DAYNAMES } from '@constants/calendar.constants';
+import type { MonthDay } from 'src/types/caledar.type';
 
 //"2025-02-31"에서 연, 월, 일을 숫자로 파싱
 export const parseDateString = (dateString: string) => {
@@ -11,11 +12,12 @@ export const parseDateString = (dateString: string) => {
 };
 
 export const getWeekDates = (year: number, month: number, date: number) => {
-  const week: { month: number; date: number; day: string }[] = [];
+  const week: { year: number; month: number; date: number; day: string }[] = [];
 
   for (let i = 0; i < 7; i++) {
     const current = new Date(year, month - 1, date + i);
     week.push({
+      year: current.getFullYear(),
       month: current.getMonth() + 1,
       date: current.getDate(),
       day: DAYNAMES[current.getDay()],
@@ -25,6 +27,7 @@ export const getWeekDates = (year: number, month: number, date: number) => {
   return week;
 };
 
+// 여러 멤버의 스케줄을 날짜별로 합산
 type Day = {
   date: string;
   blocks: number[]; // 0 | 1, length = 30
@@ -62,4 +65,44 @@ export const sumWeeklyBlocksAsObjects = (
 
     return { date, blocks: summedBlocks };
   });
+};
+
+// month calendar days 생성
+export const getMonthCalendarDays = (baseDate: Date): MonthDay[] => {
+  const year = baseDate.getFullYear();
+  const month = baseDate.getMonth(); // 0-based
+
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
+
+  const startWeekday = firstDay.getDay();
+  const totalDays = lastDay.getDate();
+
+  const days: MonthDay[] = [];
+
+  // 앞쪽 빈칸
+  for (let i = 0; i < startWeekday; i++) {
+    days.push(null);
+  }
+
+  // 실제 날짜
+  for (let d = 1; d <= totalDays; d++) {
+    days.push({
+      year,
+      month: month + 1,
+      date: d,
+    });
+  }
+
+  return days;
+};
+
+export const isToday = (year: number, month: number, date: number) => {
+  const today = new Date();
+
+  return (
+    today.getFullYear() === year &&
+    today.getMonth() + 1 === month &&
+    today.getDate() === date
+  );
 };

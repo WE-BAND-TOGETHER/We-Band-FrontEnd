@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
-//Lite Container
-export const LiteCalendarContainer = styled.div`
+//Container
+export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,11 +12,15 @@ export const LiteCalendarContainer = styled.div`
   margin: 0 auto;
 `;
 
+export const CalendarHeaderWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 // Date List
 export const CalendarDateListContainer = styled.div`
   display: flex;
   align-items: center;
-  align-self: flex-end;
 
   padding: 8px;
   gap: 16px;
@@ -88,4 +92,45 @@ export const CalendarSchedule = styled.div<{ $num: number; $total: number }>`
 
   background-color: ${({ theme, $num, $total }) =>
     transparentize(1 - $num / $total, theme.colors.Alpha.alpha)};
+`;
+
+//month calendar
+export const MonthCalendarContainer = styled.div`
+  display: flex;
+  width: 100%;
+  padding: 0 18px 0 12px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px; /* ← 이미지에 보이는 8px */
+`;
+
+export const Cell = styled.div<{ $isToday: boolean }>`
+  ${({ theme }) => theme.fontStyles.S03_Medium}
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  background: white;
+  color: ${({ theme }) => theme.colors.Gray.gray600};
+
+  ${({ $isToday }) =>
+    $isToday &&
+    `
+      border-radius: 18px;
+      background: var(--WBOrange-WBO100, #FFDED9);
+    `}
+`;
+
+export const EmptyCell = styled.div`
+  aspect-ratio: 1 / 1;
 `;

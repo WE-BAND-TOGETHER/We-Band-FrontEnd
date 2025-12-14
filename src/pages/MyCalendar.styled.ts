@@ -6,15 +6,15 @@ export const MyCalendarContainer = styled.div`
   align-items: center;
   padding: 20px;
   background-color: #f9f9f9;
-  min-height: 100vh;
 `;
 
 export const HeaderContainer = styled.div`
   display: flex;
   width: 100%;
-  padding: 32px 32px 22px 32px;
+  padding: 32px 32px 12px 32px;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 `;
 
 export const HeaderTextWrapper = styled.div`
