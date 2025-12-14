@@ -1,4 +1,4 @@
-import * as S from './Footer.styled';
+import * as S from './Layout.styled';
 import { useNavigate } from 'react-router';
 import FooterLogo from '@assets/footer-logo.svg?react';
 

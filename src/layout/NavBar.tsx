@@ -1,4 +1,4 @@
-import * as S from './NavBar.styled';
+import * as S from './Layout.styled';
 import * as I from './BaseIcon';
 import { NavLink, useLocation } from 'react-router-dom';
 

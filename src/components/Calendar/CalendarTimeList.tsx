@@ -8,11 +8,12 @@ const TimeBlock = ({ time }: { time: number }) => {
 const CalendarTimeList = () => {
   return (
     <S.CalendarTimeListContainer>
-      {Array.from({ length: BLOCKNUM }, (_, index) => STARTHOUR + index).map(
-        (hour) => (
-          <TimeBlock key={hour} time={hour} />
-        ),
-      )}
+      {Array.from(
+        { length: BLOCKNUM + 1 },
+        (_, index) => STARTHOUR + index,
+      ).map((hour) => (
+        <TimeBlock key={hour} time={hour} />
+      ))}
     </S.CalendarTimeListContainer>
   );
 };
