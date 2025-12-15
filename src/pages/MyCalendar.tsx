@@ -1,18 +1,27 @@
 import { useState } from 'react';
 import LeftArrow from '@assets/icons/left_arrow.svg?react';
 import RightArrow from '@assets/icons/right_arrow.svg?react';
-import Edit from '@assets/icons/edit.svg?react';
+import EditOff from '@assets/icons/edit_off.svg?react';
+import EditOn from '@assets/icons/edit_on.svg?react';
 
 import * as S from './MyCalendar.styled';
 
 import Calendar from '@components/Calendar/Calendar';
-import { MONTHNAMES, MONTHWEEKTOGGLE } from '@constants/calendar.constants';
+import {
+  MONTHNAMES,
+  MONTHWEEKTOGGLE,
+  CALENDARMODE,
+} from '@constants/calendar.constants';
 import myScheduleMock from '@mock/mySchedule.json';
 import MonthCalendar from '@components/Calendar/MonthCalendar';
 import { getStartOfWeek } from '@utils/calendar.util';
+import type { CalendarMode } from 'src/types/caledar.type';
 
 const MyCalendarPage = () => {
   const [weekMonthToggle, setWeekMonthToggle] = useState(0);
+  const [calendarMode, setCalendarMode] = useState<CalendarMode>(
+    CALENDARMODE.MY,
+  );
 
   const [currentDate, setCurrentDate] = useState(
     new Date(myScheduleMock.startDate),
@@ -40,6 +49,12 @@ const MyCalendarPage = () => {
     setWeekMonthToggle(1); // 주간 모드로 전환
   };
 
+  const handleEditToggle = () => {
+    setCalendarMode((prev) =>
+      prev === CALENDARMODE.MY ? CALENDARMODE.EDIT : CALENDARMODE.MY,
+    );
+  };
+
   return (
     <>
       <S.HeaderContainer>
@@ -50,7 +65,11 @@ const MyCalendarPage = () => {
 
         <S.HeaderButtonWrapper>
           {weekMonthToggle ? (
-            <Edit width="20px" height="20px" />
+            calendarMode == CALENDARMODE.EDIT ? (
+              <EditOn width="20px" height="20px" onClick={handleEditToggle} />
+            ) : (
+              <EditOff width="20px" height="20px" onClick={handleEditToggle} />
+            )
           ) : (
             <S.HeaderArrowWrapper>
               <LeftArrow onClick={handlePrevMonth} />
@@ -68,7 +87,7 @@ const MyCalendarPage = () => {
       {weekMonthToggle ? (
         <Calendar
           baseDate={currentDate}
-          mode="MY"
+          mode={calendarMode}
           // 나중에 api로 교체
           weeklySchedules={myScheduleMock.days}
           totalUser={1}
