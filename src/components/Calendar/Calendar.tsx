@@ -3,8 +3,7 @@ import * as S from './Calendar.styled';
 import CalendarDateList from './CalendarDateList';
 import CalendarTimeList from './CalendarTimeList';
 import CalendarScheduleBlocks from './CalendarScheduleBlocks';
-
-type CalendarMode = 'MEET' | 'MY' | 'EDIT';
+import type { CalendarMode } from 'src/types/caledar.type';
 
 interface CalendarProps {
   mode: CalendarMode;

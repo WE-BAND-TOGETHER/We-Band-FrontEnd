@@ -3,3 +3,5 @@ export type MonthDay = {
   month: number; // 1~12
   date: number;
 } | null;
+
+export type CalendarMode = 'MEET' | 'MY' | 'EDIT';

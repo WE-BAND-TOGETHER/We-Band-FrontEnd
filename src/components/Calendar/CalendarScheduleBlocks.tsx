@@ -25,7 +25,6 @@ const CalendarScheduleBlocks = ({
   useEffect(() => {
     setLocalSchedules(weeklySchedules);
   }, [weeklySchedules, edit]);
-
   const toggleSchedule = (weekIdx: number, sectionIdx: number, pos: number) => {
     if (!edit) return;
 
