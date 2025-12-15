@@ -21,7 +21,7 @@
       "@constants/*": ["src/constants/*"],
       "@icons/*": ["src/icons/*"],
       "@store/*": ["src/store/*"],
-      "@mock/*": ["src/mock/*"]
+      "@mocks/*": ["src/mocks/*"]
     },
 
     /* Bundler mode */

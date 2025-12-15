@@ -24,7 +24,7 @@ export default defineConfig({
       '@constants': path.resolve(__dirname, 'src/constants'),
       '@icons': path.resolve(__dirname, 'src/icons'),
       '@store': path.resolve(__dirname, 'src/store'),
-      '@mock': path.resolve(__dirname, 'src/mock'),
+      '@mocks': path.resolve(__dirname, 'src/mocks'),
     },
   },
   plugins: [

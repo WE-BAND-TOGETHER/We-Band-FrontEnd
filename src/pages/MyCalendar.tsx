@@ -12,7 +12,7 @@ import {
   MONTHWEEKTOGGLE,
   CALENDARMODE,
 } from '@constants/calendar.constants';
-import myScheduleMock from '@mock/mySchedule.json';
+import myScheduleMock from '@mocks/mySchedule.json';
 import MonthCalendar from '@components/Calendar/MonthCalendar';
 import { getStartOfWeek } from '@utils/calendar.util';
 import type { CalendarMode } from 'src/types/caledar.type';
