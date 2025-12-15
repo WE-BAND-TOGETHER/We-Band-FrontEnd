@@ -11,6 +11,7 @@ const MeetList = ({ meets }: MeetListProps) => {
     <S.MeetContainer>
       {meets.map((meet) => (
         <MeetBlock
+          key={meet.meetId}
           title={meet.meetName}
           owner={meet.owner}
           memberCount={meet.memberCount}
