@@ -4,7 +4,7 @@ import Add from '@assets/icons/add.svg?react';
 import MeetListMock from '@mocks/meetList.json';
 
 import MeetList from '@components/Meet/MeetList';
-import MeetCreate from '@components/Meet/MeetCreate';
+import MeetCreate from '@components/Meet/MeetCreateModal';
 
 import { useState } from 'react';
 import Overlay from '@components/Overlay/Overlay';
