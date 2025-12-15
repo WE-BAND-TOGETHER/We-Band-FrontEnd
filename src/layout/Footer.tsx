@@ -1,8 +1,8 @@
-import * as S from './Footer.styled';
+import * as S from './Layout.styled';
 import { useNavigate } from 'react-router';
 import FooterLogo from '@assets/footer-logo.svg?react';
 
-const Footer: React.FC = () => {
+const Footer = () => {
   const navigate = useNavigate();
 
   const handleClickHome = () => {

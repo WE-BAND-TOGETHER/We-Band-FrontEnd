@@ -1,6 +1,6 @@
 import Logo from '@assets/logo.svg?react';
 import * as S from './Onboarding.styled';
-import KaKaoLogin from '@components/KakaoLogin';
+import KaKaoLogin from '@components/Kakao/KakaoLogin';
 
 const OnBoarding = () => {
   return (

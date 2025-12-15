@@ -1,4 +1,4 @@
-import * as S from './BaseIcon.styled';
+import * as S from './Layout.styled';
 
 import MeetOn from '@assets/icons/meet_on.svg?react';
 import MeetOff from '@assets/icons/meet_off.svg?react';

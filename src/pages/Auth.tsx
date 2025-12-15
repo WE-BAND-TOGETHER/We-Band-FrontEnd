@@ -14,7 +14,6 @@ const Auth = () => {
 
   useEffect(() => {
     const code = searchParams.get('code');
-    console.log(code);
 
     if (code) {
       postKakaoLogin(code)

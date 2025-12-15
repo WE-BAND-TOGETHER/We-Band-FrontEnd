@@ -1,35 +1,25 @@
-import { useState } from 'react';
-import * as S from './NavBar.styled';
+import * as S from './Layout.styled';
 import * as I from './BaseIcon';
-
-const NavBarState = {
-  CALENDAR: 'CALENDAR',
-  CLUB: 'CLUB',
-  MY: 'MY',
-};
+import { NavLink, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
-  const [navBarState, setNavBarState] = useState(NavBarState.CALENDAR);
+  const { pathname } = useLocation();
+
+  const isCalendar = pathname === '/';
+  const isMeet = pathname.startsWith('/meet');
+  const isMy = pathname.startsWith('/mypage');
 
   return (
     <S.NavBarContainer>
-      <button onClick={() => setNavBarState(NavBarState.CALENDAR)}>
-        {navBarState === NavBarState.CALENDAR ? (
-          <I.CalendarOnIcon />
-        ) : (
-          <I.CalendarOffIcon />
-        )}
-      </button>
-      <button onClick={() => setNavBarState(NavBarState.CLUB)}>
-        {navBarState === NavBarState.CLUB ? (
-          <I.MeetOnIcon />
-        ) : (
-          <I.MeetOffIcon />
-        )}
-      </button>
-      <button onClick={() => setNavBarState(NavBarState.MY)}>
-        {navBarState === NavBarState.MY ? <I.MyOnIcon /> : <I.MyOffIcon />}
-      </button>
+      <NavLink to="/">
+        {isCalendar ? <I.CalendarOnIcon /> : <I.CalendarOffIcon />}
+      </NavLink>
+
+      <NavLink to="/meet">
+        {isMeet ? <I.MeetOnIcon /> : <I.MeetOffIcon />}
+      </NavLink>
+
+      <NavLink to="/mypage">{isMy ? <I.MyOnIcon /> : <I.MyOffIcon />}</NavLink>
     </S.NavBarContainer>
   );
 };
