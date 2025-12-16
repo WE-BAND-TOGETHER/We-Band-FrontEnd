@@ -27,15 +27,20 @@ const MeetDetail = () => {
           <CopyUrl width="48px" height="48px" />
           <S.MeetDetailHeaderWrapper>
             <S.JoinMeetButtonWrapper>
-              <S.JoinMeetText>모임 참여</S.JoinMeetText>
               {meetMock.participate ? (
-                <Enter width="20px" height="20px" />
+                <>
+                  <S.JoinMeetText>모임 탈퇴</S.JoinMeetText>
+                  <Withdraw width="20px" height="20px" />
+                </>
               ) : (
-                <Withdraw width="20px" height="20px" />
+                <>
+                  <S.JoinMeetText>모임 참여</S.JoinMeetText>
+                  <Enter width="20px" height="20px" />
+                </>
               )}
             </S.JoinMeetButtonWrapper>
             <S.MeetMemberWrapper>
-              <S.MeetMemberText>현재 인원</S.MeetMemberText>
+              <S.MeetMemberText> 모임원</S.MeetMemberText>
               {memberListToggle ? (
                 <ArrowUp width="20px" height="20px" />
               ) : (

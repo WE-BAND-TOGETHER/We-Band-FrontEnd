@@ -144,10 +144,8 @@ export const aggregateWeeklySchedules = (
     });
   });
 
-  return Array.from(scheduleMap.entries())
-    .sort(([a], [b]) => a.localeCompare(b)) // 날짜 오름차순
-    .map(([date, blocks]) => ({
-      date,
-      blocks,
-    }));
+  return Array.from(scheduleMap.entries()).map(([date, blocks]) => ({
+    date,
+    blocks,
+  }));
 };
