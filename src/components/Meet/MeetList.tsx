@@ -12,6 +12,7 @@ const MeetList = ({ meets }: MeetListProps) => {
       {meets.map((meet) => (
         <MeetBlock
           key={meet.meetId}
+          meetId={meet.meetId}
           title={meet.meetName}
           owner={meet.owner}
           memberCount={meet.memberCount}

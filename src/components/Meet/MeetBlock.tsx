@@ -1,15 +1,23 @@
+import { useNavigate } from 'react-router-dom';
 import * as S from './Meet.styled';
 import Trash from '@assets/icons/trash.svg?react';
 
 interface MeetProps {
+  meetId: number;
   title: string;
   owner: string;
   memberCount: number;
 }
 
-const MeetBlock = ({ title, owner, memberCount }: MeetProps) => {
+const MeetBlock = ({ meetId, title, owner, memberCount }: MeetProps) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/meet/${meetId}`);
+  };
+
   return (
-    <S.MeetBlockContainer>
+    <S.MeetBlockContainer onClick={handleClick}>
       <S.MeetTextWrapper>
         <S.MeetTitle>{title}</S.MeetTitle>
         <S.MeetText>

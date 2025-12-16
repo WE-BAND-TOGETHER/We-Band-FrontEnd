@@ -9,6 +9,7 @@ import Auth from '@pages/Auth';
 import MyCalenderPage from '@pages/MyCalendar';
 import Meet from '@pages/Meet';
 import MyPage from '@pages/MyPage';
+import MeetDetail from '@pages/MeetDetail';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route element={<Layout />}>
               <Route index element={<MyCalenderPage />} />
               <Route path="/meet" element={<Meet />} />
+              <Route path="/meet/:meetId" element={<MeetDetail />} />
               <Route path="/mypage" element={<MyPage />} />
             </Route>
           </Route>

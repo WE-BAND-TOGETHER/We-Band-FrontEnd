@@ -1,7 +1,9 @@
 {
-  "groupId": 12,
-  "groupName": "산학 회의",
+  "meetId": 12,
+  "meetName": "산학 회의",
   "startDate": "2025-03-22",
+  "participate": true,
+
   "member": [
     {
       "memberName": "경현",
