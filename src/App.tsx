@@ -6,7 +6,7 @@ import ProtectedRoute from '@components/ProtectedRoute';
 
 import OnBoarding from '@pages/Onboarding';
 import Auth from '@pages/Auth';
-import MyCalenderPage from '@pages/MyCalendar';
+import MyCalender from '@pages/MyCalendar';
 import Meet from '@pages/Meet';
 import MyPage from '@pages/MyPage';
 import MeetDetail from '@pages/MeetDetail';
@@ -21,7 +21,7 @@ function App() {
 
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
-              <Route index element={<MyCalenderPage />} />
+              <Route index element={<MyCalender />} />
               <Route path="/meet" element={<Meet />} />
               <Route path="/meet/:meetId" element={<MeetDetail />} />
               <Route path="/mypage" element={<MyPage />} />
