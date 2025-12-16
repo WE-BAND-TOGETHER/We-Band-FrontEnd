@@ -117,3 +117,37 @@ export const getStartOfWeek = (date: Date) => {
   d.setDate(d.getDate() - day); // 일요일 시작
   return d;
 };
+
+// 모임 스케줄 합산 함수
+interface WeeklySchedule {
+  date: string;
+  blocks: number[];
+}
+
+export const aggregateWeeklySchedules = (
+  members: Member[],
+): WeeklySchedule[] => {
+  const scheduleMap = new Map<string, number[]>();
+
+  members.forEach((member) => {
+    member.days.forEach(({ date, blocks }) => {
+      if (!scheduleMap.has(date)) {
+        // 처음 등장한 날짜 → blocks 길이만큼 0으로 초기화
+        scheduleMap.set(date, Array(blocks.length).fill(0));
+      }
+
+      const accBlocks = scheduleMap.get(date)!;
+
+      blocks.forEach((value, idx) => {
+        accBlocks[idx] += value;
+      });
+    });
+  });
+
+  return Array.from(scheduleMap.entries())
+    .sort(([a], [b]) => a.localeCompare(b)) // 날짜 오름차순
+    .map(([date, blocks]) => ({
+      date,
+      blocks,
+    }));
+};

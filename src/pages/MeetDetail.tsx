@@ -6,10 +6,17 @@ import ArrowDown from '@assets/icons/arrow_down.svg?react';
 import Enter from '@assets/icons/enter.svg?react';
 import Withdraw from '@assets/icons/withdraw.svg?react';
 
+import Calendar from '@components/Calendar/Calendar';
+
 import meetMock from '@mocks/meet.json';
+import { CALENDARMODE } from '@constants/calendar.constants';
+
 import { useState } from 'react';
+import { aggregateWeeklySchedules } from '@utils/calendar.util';
 
 const MeetDetail = () => {
+  const baseDate = new Date(meetMock.startDate);
+  const schedule = aggregateWeeklySchedules(meetMock.member);
   const [memberListToggle, setMemberListToggle] = useState(false);
 
   return (
@@ -38,6 +45,13 @@ const MeetDetail = () => {
           </S.MeetDetailHeaderWrapper>
         </S.MeetHeaderContainer>
       </S.MeetDetailWrapper>
+
+      <Calendar
+        baseDate={baseDate}
+        mode={CALENDARMODE.MEET}
+        weeklySchedules={schedule}
+        totalUser={meetMock.member.length}
+      />
     </S.MeetDetailContainer>
   );
 };
