@@ -1,0 +1,16 @@
+{
+  "meets": [
+    {
+      "meetId": 12,
+      "meetName": "산학 회의",
+      "memberCount": 5,
+      "owner": "박성진"
+    },
+    {
+      "meetId": 7,
+      "meetName": "동아리 세션 조율",
+      "memberCount": 8,
+      "owner": "최진서"
+    }
+  ]
+}

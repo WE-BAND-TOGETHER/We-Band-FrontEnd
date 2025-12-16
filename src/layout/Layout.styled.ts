@@ -28,7 +28,6 @@ export const NavBarContainer = styled.div`
 // Footer styles
 export const FooterContainer = styled.div`
   display: flex;
-  height: 120px;
   padding: 28px 36px;
   justify-content: space-between;
   align-items: flex-start;

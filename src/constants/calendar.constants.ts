@@ -1,4 +1,5 @@
 // 기본 상수
+export const CURRENT_YEAR = new Date().getFullYear();
 export const FIRSTDAY = 1;
 export const WEEK = 7;
 
