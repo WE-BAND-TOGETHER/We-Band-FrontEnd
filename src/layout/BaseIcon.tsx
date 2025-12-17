@@ -15,11 +15,7 @@ type IconProps = {
   content: string;
 };
 
-const BaseIcon = ({
-  svg: SVG,
-  active: active,
-  content: content,
-}: IconProps) => {
+const BaseIcon = ({ svg: SVG, active, content }: IconProps) => {
   return (
     <S.IconWrapper $active={active}>
       <SVG width="32px" height="32px" />
