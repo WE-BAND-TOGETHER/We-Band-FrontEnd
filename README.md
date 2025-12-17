@@ -20,18 +20,18 @@
 ```php
 <타입>/<이슈 번호>-<간단한 설명>
 
-- feature/1234-add-user-login
-- bugfix/5678-fix-login-error
+- feat/1234-add-user-login
+- fix/5678-fix-login-error
 - release/1.2.0
 ```
 
 ### Branch Type
 
 - **feat/ - 새로운 기능 개발 시**
-- **bug/ -** **버그 수정** 시
+- **fix/ -** **버그 수정** 시
+- **chore/ -** 빌드 및 기타 작업 자동화, 문서 작업 등 **코드와 관련 없는 작업**
 - **hotfix/ -** **긴급한 버그 수정** 시 (보통 프로덕션 환경에서 발생)
 - **release/ -** **릴리즈 준비 시**
-- **chore/ -** 빌드 및 기타 작업 자동화, 문서 작업 등 **코드와 관련 없는 작업**
 
 ---
 
@@ -39,9 +39,6 @@
 
 - **feat** - 새로운 기능 추가
 - **fix** - 버그 수정
-- **refactor** - 코드 리팩토링 (기능 변경 없이 구조 개선)
-- **style** - 코드 포맷팅, 세미콜론 누락 등 (비즈니스 로직에 영향이 없는 변경)
-- **test** - 테스트 추가 또는 수정
 - **docs** - 문서 추가 및 수정
 - **chore** - 빌드 작업, 패키지 관리 등
 
@@ -59,14 +56,15 @@
 
 ```
 │── src/
-│   ├── assets/        # 이미지, 폰트, CSS 등의 정적 파일
 │   ├── api/           # API 호출 함수 (fetch, axios 등)
+│   ├── assets/        # 이미지, 폰트, CSS 등의 정적 파일
 │   ├── components/    # 재사용 가능한 UI 컴포넌트
-│   ├── pages/         # 개별 페이지 컴포넌트
-│   ├── services/      # 비즈니스 로직 및 상태 관리 (예: context, recoil, zustand)
-│   ├── hooks/         # 커스텀 훅
-│   ├── utils/         # 유틸리티 함수
+│   ├── constants/    # 재사용 가능한 상수값
 │   ├── layout/        # 전역으로 사용할 디자인 양식 정의
+│   ├── utils/         # 유틸리티 함수
+│   ├── mocks/         # API Response 형식의 Json 파일
+│   ├── pages/         # 개별 페이지 컴포넌트
+│   ├── store/         # 비즈니스 로직 및 상태 관리 (예: context, recoil, zustand)
 │   ├── styles/        # 전역으로 사용할 폰트, 색상 정의
 │   ├── App.js         # 루트 컴포넌트
 │   ├── main.js        # ReactDOM.render() 또는 createRoot() 설정
@@ -81,3 +79,4 @@
 ```
 
 ---
+│   ├── utils/         # 유틸리티 함수
