@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import * as S from './App.styled';
 
 import Layout from '@layout/Layout';
@@ -8,8 +8,9 @@ import OnBoarding from '@pages/Onboarding';
 import Auth from '@pages/Auth';
 import MyCalenderPage from '@pages/MyCalendar';
 import Meet from '@pages/Meet';
-import MyPage from '@pages/MyPage';
 import MeetDetail from '@pages/MeetDetail';
+import MyPage from '@pages/MyPage';
+import NotFound from '@pages/NotFound';
 
 function App() {
   return (
@@ -22,11 +23,13 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route element={<Layout />}>
               <Route index element={<MyCalenderPage />} />
-              <Route path="/meet" element={<Meet />} />
-              <Route path="/meet/:meetId" element={<MeetDetail />} />
-              <Route path="/mypage" element={<MyPage />} />
+              <Route path="meet" element={<Meet />} />
+              <Route path="meet/:meetId" element={<MeetDetail />} />
+              <Route path="mypage" element={<MyPage />} />
             </Route>
           </Route>
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </S.AppContainer>
     </BrowserRouter>
