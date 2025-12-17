@@ -16,7 +16,7 @@ export const getMySchedule = async (
 
   const day = nextDay.toISOString().slice(0, 10);
 
-  const response = await api.get('/calendar/week', {
+  const response = await api.get('/api/calendar/week', {
     params: { day },
   });
 
@@ -39,7 +39,7 @@ export const postMySchedule = async (
 
   const day = nextDay.toISOString().slice(0, 10);
 
-  return api.post('/calendar/week', payload, {
+  return api.post('/api/calendar/week', payload, {
     params: { day },
   });
 };

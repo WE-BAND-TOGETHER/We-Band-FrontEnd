@@ -8,7 +8,7 @@ interface KakaoLoginResponse {
 export const postKakaoLogin = async (
   code: string,
 ): Promise<KakaoLoginResponse> => {
-  const response = await api.post(`/auth/kakao-login`, {
+  const response = await api.post(`/api/auth/kakao-login`, {
     code,
   });
 
