@@ -17,7 +17,7 @@ import { aggregateWeeklySchedules } from '@utils/calendar.util';
 const MeetDetail = () => {
   const baseDate = new Date(meetMock.startDate);
   const schedule = aggregateWeeklySchedules(meetMock.member);
-  const [memberListToggle, setMemberListToggle] = useState(false);
+  // const [memberListToggle, setMemberListToggle] = useState(false);
 
   return (
     <S.MeetDetailContainer>
@@ -41,7 +41,7 @@ const MeetDetail = () => {
             </S.JoinMeetButtonWrapper>
             <S.MeetMemberWrapper>
               <S.MeetMemberText> 모임원</S.MeetMemberText>
-              {memberListToggle ? (
+              {false ? (
                 <ArrowUp width="20px" height="20px" />
               ) : (
                 <ArrowDown width="20px" height="20px" />

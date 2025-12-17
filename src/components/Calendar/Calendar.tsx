@@ -13,6 +13,7 @@ interface CalendarProps {
     blocks: number[];
   }[];
   totalUser: number;
+  onSaved?: (updatedDays: { date: string; blocks: number[] }[]) => void;
 }
 
 const Calendar = ({
@@ -20,6 +21,7 @@ const Calendar = ({
   mode,
   weeklySchedules,
   totalUser,
+  onSaved,
 }: CalendarProps) => {
   const editable = mode === 'EDIT';
 
@@ -37,6 +39,8 @@ const Calendar = ({
           totalUser={totalUser}
           weeklySchedules={weeklySchedules}
           edit={editable}
+          baseDate={baseDate}
+          onSaved={onSaved}
         />
       </S.CalendarScheduleContainer>
     </S.CalendarContainer>
