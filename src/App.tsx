@@ -1,15 +1,37 @@
-import { BrowserRouter, Route, Routes } from 'react-router';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import * as S from './App.styled';
+
 import Layout from '@layout/Layout';
-import Home from '@pages/Home';
+import ProtectedRoute from '@components/ProtectedRoute';
+
+import OnBoarding from '@pages/Onboarding';
+import Auth from '@pages/Auth';
+import MyCalender from '@pages/MyCalendar';
+import Meet from '@pages/Meet';
+import MeetDetail from '@pages/MeetDetail';
+import MyPage from '@pages/MyPage';
+import NotFound from '@pages/NotFound';
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-        </Route>
-      </Routes>
+      <S.AppContainer>
+        <Routes>
+          <Route path="onboarding" element={<OnBoarding />} />
+          <Route path="auth-callback" element={<Auth />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route element={<Layout />}>
+              <Route index element={<MyCalender />} />
+              <Route path="/meet" element={<Meet />} />
+              <Route path="/meet/:meetId" element={<MeetDetail />} />
+              <Route path="/mypage" element={<MyPage />} />
+            </Route>
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </S.AppContainer>
     </BrowserRouter>
   );
 }
