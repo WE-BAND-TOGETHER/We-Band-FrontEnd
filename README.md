@@ -61,11 +61,11 @@
 │   ├── components/    # 재사용 가능한 UI 컴포넌트
 │   ├── constants/    # 재사용 가능한 상수값
 │   ├── layout/        # 전역으로 사용할 디자인 양식 정의
-│   ├── utils/         # 유틸리티 함수
 │   ├── mocks/         # API Response 형식의 Json 파일
 │   ├── pages/         # 개별 페이지 컴포넌트
 │   ├── store/         # 비즈니스 로직 및 상태 관리 (예: context, recoil, zustand)
 │   ├── styles/        # 전역으로 사용할 폰트, 색상 정의
+│   ├── utils/         # 유틸리티 함수
 │   ├── App.js         # 루트 컴포넌트
 │   ├── main.js        # ReactDOM.render() 또는 createRoot() 설정
 │── .env               # 환경 변수 파일
