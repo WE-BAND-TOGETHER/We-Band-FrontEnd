@@ -1,7 +1,7 @@
 import * as S from './MyPage.styled';
 
 const MyPage = () => {
-  const userName = '{유저 이름}';
+  const userName = '유저 이름';
   const userEmail = '유저 카카오 계정@kakao.com';
 
   return (

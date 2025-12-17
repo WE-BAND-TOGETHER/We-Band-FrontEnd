@@ -70,7 +70,7 @@ export const sumWeeklyBlocksAsObjects = (
   });
 };
 
-// month calendar days 생성
+// 월간 캘린더 일자 생성
 export const getMonthCalendarDays = (baseDate: Date): MonthDay[] => {
   const year = baseDate.getFullYear();
   const month = baseDate.getMonth(); // 0-based
@@ -100,6 +100,7 @@ export const getMonthCalendarDays = (baseDate: Date): MonthDay[] => {
   return days;
 };
 
+// 오늘 날짜인지 확인
 export const isToday = (year: number, month: number, date: number) => {
   const today = new Date();
 
@@ -123,7 +124,6 @@ interface WeeklySchedule {
   date: string;
   blocks: number[];
 }
-
 export const aggregateWeeklySchedules = (
   members: Member[],
 ): WeeklySchedule[] => {
