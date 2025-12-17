@@ -11,7 +11,6 @@ import Calendar from '@components/Calendar/Calendar';
 import meetMock from '@mocks/meet.json';
 import { CALENDARMODE } from '@constants/calendar.constants';
 
-import { useState } from 'react';
 import { aggregateWeeklySchedules } from '@utils/calendar.util';
 
 const MeetDetail = () => {
