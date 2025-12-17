@@ -19,8 +19,8 @@ const Auth = () => {
       postKakaoLogin(code)
         .then((data) => {
           if (data) {
-            login(data.access_token);
-            localStorage.setItem('refreshToken', data.refresh_token);
+            login(data.accessToken);
+            localStorage.setItem('refreshToken', data.refreshToken);
             navigate('/');
           }
         })

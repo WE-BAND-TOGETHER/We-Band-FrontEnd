@@ -1,8 +1,8 @@
 import api from './api';
 
 interface KakaoLoginResponse {
-  access_token: string;
-  refresh_token: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export const postKakaoLogin = async (
